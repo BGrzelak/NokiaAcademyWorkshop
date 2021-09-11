@@ -14,3 +14,8 @@ void Board::setField(const Coordinates &, Field field)
 {
     _field = field;
 }
+int Board::getSize() const
+{
+    return size;
+
+}

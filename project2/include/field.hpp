@@ -3,5 +3,6 @@
 enum class Field
 {
     Empty,
-    O
+    O,
+    X
 };
