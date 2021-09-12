@@ -2,6 +2,7 @@
 #include "board.hpp"
 #include <memory>
 #include "input.hpp"
+#include "field.hpp"
 
 enum class PlayerSymbol
 {
