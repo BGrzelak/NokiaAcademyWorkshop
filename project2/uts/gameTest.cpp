@@ -13,8 +13,10 @@ class GameTest : public ::testing::Test
     void TearDown() override {};
 };
 
-TEST_F(GameTest, a)
+TEST_F(GameTest, shouldReturnInPrograssStateForNewGame)
 {
+    std::unique_ptr<Game> sut = std::make_unique<Game>();
+    EXPECT_EQ(sut->getState(), GameState::InProgress);
 }
 
 TEST_F(GameTest, b)
