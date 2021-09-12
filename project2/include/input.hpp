@@ -6,22 +6,24 @@
 // do not create a coresponding cpp file,
 // instead use mocks!
 
+struct Coordinates;
+
 class InputI
 {
 public:
     virtual ~InputI() = default;
 
-    virtual std::pair<std::size_t, std::size_t> getInput() const = 0;
+    virtual Coordinates getInput() const = 0;
 };
 
 class HumanInput : public InputI // do not implement this class!
 {
 public:
-    std::pair<std::size_t, std::size_t> getInput() const;
+    Coordinates getInput() const;
 };
 
 class AiInput : public InputI // do not implement this class!
 {
 public:
-    std::pair<std::size_t, std::size_t> getInput() const;
+    Coordinates getInput() const;
 };

@@ -4,11 +4,13 @@
 #include <utility>
 #include "gmock/gmock.h"
 
+struct Coordinates;
+
 class InputMock : public InputI
 {
 public:
     InputMock() = default;
     ~InputMock() override = default;
 
-    MOCK_CONST_METHOD0(getInput, std::pair<std::size_t, std::size_t>());
+    MOCK_CONST_METHOD0(getInput, Coordinates());
 };

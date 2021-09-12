@@ -1,6 +1,7 @@
 #pragma once
 #include "board.hpp"
 #include <memory>
+#include "input.hpp"
 
 enum class PlayerSymbol
 {
@@ -11,12 +12,14 @@ enum class PlayerSymbol
 class Player
 {
     public:
-        Player(PlayerSymbol playerSymbol, std::shared_ptr<BoardI> playerBoard) : playerSymbol(playerSymbol), playerBoard(playerBoard)
-        {}
+        Player(PlayerSymbol playerSymbol, InputI& humanInput, Board& board) 
+        : playerSymbol(playerSymbol), input(&humanInput), board_pointer(&board){}
+        
         PlayerSymbol getPlayerSymbol();
-
+        bool makeMove();
     private:
         PlayerSymbol playerSymbol;
-        std::shared_ptr<BoardI> playerBoard;
+        InputI* input;
+        Board* board_pointer;
 };
 
