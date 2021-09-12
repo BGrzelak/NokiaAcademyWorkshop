@@ -15,6 +15,7 @@ class Game
         this->gameState = GameState::InProgress;
     };
         GameState getState();
+        void setState(GameState gameState);
     private:
         GameState gameState;
 };

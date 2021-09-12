@@ -21,4 +21,7 @@ TEST_F(GameTest, shouldReturnInPrograssStateForNewGame)
 
 TEST_F(GameTest, b)
 {
+    std::unique_ptr<Game> sut = std::make_unique<Game>();
+    sut->setState(GameState::XWon);
+    EXPECT_EQ(sut->getState(), GameState::XWon);
 }
