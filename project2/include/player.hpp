@@ -13,14 +13,14 @@ enum class PlayerSymbol
 class Player
 {
     public:
-        Player(PlayerSymbol playerSymbol, InputI& humanInput, Board& board) 
-        : playerSymbol(playerSymbol), input(&humanInput), board_pointer(&board){}
+        Player(PlayerSymbol playerSymbol, InputI &humanInput, std::shared_ptr<Board>& board) 
+        : playerSymbol(playerSymbol), input(&humanInput), board(std::move(board)){}
         
         PlayerSymbol getPlayerSymbol();
         bool makeMove();
     private:
         PlayerSymbol playerSymbol;
-        InputI* input;
-        Board* board_pointer;
+        InputI *input;
+        std::shared_ptr<Board> board;
 };
 

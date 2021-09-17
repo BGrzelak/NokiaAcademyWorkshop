@@ -11,11 +11,11 @@ bool Player::makeMove()
 {
     Coordinates c = input->getInput();
 
-    if(board_pointer->getField(c) == Field::Empty) {
+    if(board->getField(c) == Field::Empty) {
         if(playerSymbol == PlayerSymbol::X)
-            board_pointer->setField(c, Field::X);
+            board->setField(c, Field::X);
         else
-            board_pointer->setField(c, Field::O);
+            board->setField(c, Field::O);
     return true;
     }
     else
