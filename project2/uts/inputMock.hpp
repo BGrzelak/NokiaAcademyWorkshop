@@ -3,8 +3,7 @@
 #include "input.hpp"
 #include <utility>
 #include "gmock/gmock.h"
-
-struct Coordinates;
+#include "board.hpp"
 
 class InputMock : public InputI
 {
