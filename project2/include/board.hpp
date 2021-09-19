@@ -3,6 +3,14 @@
 
 enum class Field;
 
+enum class GameState
+{
+    InProgress,
+    XWon,
+    OWon,
+    Draw
+};
+
 struct Coordinates
 {
     int row;
@@ -33,19 +41,21 @@ public:
     virtual Field getField(const Coordinates &) const = 0;
     virtual int getSize() const = 0;
     virtual int getNumberOfEmptyFields() const = 0;
+    virtual GameState checkWinningPatterns() const = 0;
 };
 
 class Board : public BoardI
 {
 public:
-    Board(){}
+    Board();
     Board(int boardSize);
     Field getField(const Coordinates &) const override;
     void setField(const Coordinates &, Field) override;
     int getSize() const override;
     int getNumberOfEmptyFields() const override;
+    GameState checkWinningPatterns() const override;
 
 private:
-    std::vector<FieldContainer> fields;
+    std::vector<std::vector<Field>> fields;
     static constexpr int size = 3;
 };

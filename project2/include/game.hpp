@@ -3,14 +3,6 @@
 #include "player.hpp"
 #include "board.hpp"
 
-enum class GameState
-{
-    InProgress,
-    XWon,
-    OWon,
-    Draw
-};
-
 class Game
 {
     public:

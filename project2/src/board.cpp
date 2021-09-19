@@ -6,24 +6,30 @@ Board::Board(int boardSize = 3)
 {
     for(int i = 0; i < boardSize; i++)
     {
+        this->fields.push_back({});
         for(int j = 0; j < boardSize; j++)
         {
-            this->fields.at(i).field = Field::Empty;
-            this->fields.at(i).coordinates.column = i;
-            this->fields.at(i).coordinates.row = j;
+            this->fields.at(i).push_back(Field::Empty);
         }
     }
 }
 
-Field Board::getField(const Coordinates &coordinates) const
+Board::Board()
 {
-    for(auto field : fields)
+    for(int i = 0; i < 3; i++)
     {
-        if(field.coordinates == coordinates)
-            return field.field;
+        this->fields.push_back({});
+        for(int j = 0; j < 3; j++)
+        {
+            this->fields.at(i).push_back(Field::Empty);
+        }
     }
 
-    return Field::Empty;
+}
+
+Field Board::getField(const Coordinates &coordinates) const
+{
+    return this->fields.at(coordinates.row).at(coordinates.column);
 }
 
 bool operator==(const Coordinates& k, const Coordinates& c)
@@ -36,10 +42,7 @@ bool operator==(const Coordinates& k, const Coordinates& c)
 
 void Board::setField(const Coordinates & coordinates, Field field)
 {
-    auto it = std::find_if(this->fields.begin(), this->fields.end(), [&coordinates](const FieldContainer& obj){ return coordinates == obj.coordinates;});
-
-    it->coordinates = coordinates;
-    it->field = field;
+    fields.at(coordinates.row).at(coordinates.column) = field;
 }
 int Board::getSize() const
 {
@@ -50,9 +53,25 @@ int Board::getSize() const
 int Board::getNumberOfEmptyFields() const
 {
     int result = 0;
-    for(auto field : this->fields)
-        if(field.field == Field::Empty)
-            result += 1;
+    for(auto row : this->fields)
+    {
+        for(auto column : row)
+        {
+            if(column == Field::Empty)
+                result += 1;
+        }
+    }
 
     return result;
+}
+
+GameState Board::checkWinningPatterns() const
+{
+    // this->fields
+    // auto it = std::find_if(this->fields.begin(), this->fields.end(), [&coordinates](const FieldContainer& obj)
+    // {
+    //     return coordinates == obj.coordinates;
+    // });
+
+    return GameState::XWon;
 }
