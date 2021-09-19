@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 enum class Field;
 
@@ -6,6 +7,22 @@ struct Coordinates
 {
     int row;
     int column;
+
+    public:
+        bool operator==(const Coordinates& c)
+        {
+            if((this->column == c.column) && (this->row == c.row))
+                return true;
+            else
+                return false;
+        };
+};
+
+class FieldContainer
+{
+    public:
+        Coordinates coordinates;
+        Field field;
 };
 
 class BoardI
@@ -20,12 +37,13 @@ public:
 class Board : public BoardI
 {
 public:
-    Board();
+    Board(){}
+    Board(int boardSize);
     Field getField(const Coordinates &) const override;
     void setField(const Coordinates &, Field) override;
     int getSize() const override;
 
 private:
-    Field _field;
+    std::vector<FieldContainer> fields;
     static constexpr int size = 3;
 };
