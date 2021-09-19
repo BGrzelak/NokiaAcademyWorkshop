@@ -32,6 +32,7 @@ public:
     virtual void setField(const Coordinates &, Field) = 0;
     virtual Field getField(const Coordinates &) const = 0;
     virtual int getSize() const = 0;
+    virtual int getNumberOfEmptyFields() const = 0;
 };
 
 class Board : public BoardI
@@ -42,6 +43,7 @@ public:
     Field getField(const Coordinates &) const override;
     void setField(const Coordinates &, Field) override;
     int getSize() const override;
+    int getNumberOfEmptyFields() const override;
 
 private:
     std::vector<FieldContainer> fields;

@@ -46,3 +46,13 @@ int Board::getSize() const
     return size;
 
 }
+
+int Board::getNumberOfEmptyFields() const
+{
+    int result = 0;
+    for(auto field : this->fields)
+        if(field.field == Field::Empty)
+            result += 1;
+
+    return result;
+}

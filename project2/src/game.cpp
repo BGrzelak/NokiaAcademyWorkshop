@@ -1,6 +1,7 @@
 #include "game.hpp"
 
-GameState Game::getState()  {
+GameState Game::getState() const
+{
     return gameState;
 }
 
@@ -12,7 +13,7 @@ void Game::askPlayerForMove(std::unique_ptr<Player> const &player) {
     player->makeMove();
 }
 
-GameState check_win()
+GameState Game::check_win()
 {
     return GameState::XWon;
 }

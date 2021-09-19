@@ -23,7 +23,7 @@ class Game
     {
         this->gameState = GameState::InProgress;
     };
-        GameState getState();
+        GameState getState() const;
         void setState(GameState gameState);
         void askPlayerForMove(std::unique_ptr<Player> const &player);
         GameState check_win();

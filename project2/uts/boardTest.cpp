@@ -48,3 +48,11 @@ TEST_F(BoardTest, shouldReturnDefaultSize3ofBoard)
 
     EXPECT_EQ(sut->getSize(), 3);
 }
+
+TEST_F(BoardTest, shoulReturn9EmptyPlacesForNewBoard)
+
+{
+    std::unique_ptr<BoardI> sut = std::make_unique<Board>(3);
+
+    EXPECT_EQ(sut->getNumberOfEmptyFields(), 9);
+}
