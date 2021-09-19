@@ -11,3 +11,8 @@ void Game::setState(GameState gameState) {
 void Game::askPlayerForMove(std::unique_ptr<Player> const &player) {
     player->makeMove();
 }
+
+GameState check_win()
+{
+    return GameState::XWon;
+}
