@@ -41,7 +41,7 @@ public:
     virtual Field getField(const Coordinates &) const = 0;
     virtual int getSize() const = 0;
     virtual int getNumberOfEmptyFields() const = 0;
-    virtual GameState checkWinningPatterns() const = 0;
+    virtual GameState checkGameState() const = 0;
 };
 
 class Board : public BoardI
@@ -53,7 +53,7 @@ public:
     void setField(const Coordinates &, Field) override;
     int getSize() const override;
     int getNumberOfEmptyFields() const override;
-    GameState checkWinningPatterns() const override;
+    GameState checkGameState() const override;
 
 private:
     std::vector<std::vector<Field>> fields;
