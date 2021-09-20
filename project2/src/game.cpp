@@ -13,7 +13,7 @@ void Game::askPlayerForMove(std::unique_ptr<Player> const &player) {
     player->makeMove();
 }
 
-GameState Game::check_win()
+GameState Game::checkGameState()
 {
     return GameState::XWon;
 }
