@@ -27,6 +27,9 @@ TEST_F(Fixture, testUsingFixture)
 // test with mock
 
 using ReturnType = int;
+
+
+
 using ArgType1 = char;
 using ArgType2 = double;
 
